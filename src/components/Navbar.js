@@ -5,7 +5,7 @@ import SchoolIcon from '@material-ui/icons/School';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import './Navbar.css';
-import { Avatar, Button } from '@material-ui/core';
+import { Avatar } from '@material-ui/core';
 import { auth } from '../firebase';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';

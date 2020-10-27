@@ -4,7 +4,6 @@ import './App.css';
 import { selectUser, login, logout } from './features/userSlice';
 import Login from "./components/Login";
 import { auth } from './firebase';
-import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -29,6 +28,9 @@ function App() {
         dispatch(logout());
       }
     })
+
+    // Comment below disable warning for useEffect() method:
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
