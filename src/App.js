@@ -9,6 +9,16 @@ import Home from './pages/Home';
 import About from './pages/About';
 import History from './pages/History';
 
+/**
+ *  For firebase deployment:
+ *    - npm run build
+ *    - firebase init
+ *    - selection hosting
+ *    - Use "build"
+ *    - No single page
+ *    - No overwrite
+ *    - firebase deploy
+ */
 
 function App() {
 
@@ -38,9 +48,9 @@ function App() {
       {user ? 
         <Router>
           <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/about' exact component={About} />
-            <Route path='/history' exact component={History} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/history' component={History} />
           </Switch>
         </Router> 
         : 
