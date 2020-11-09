@@ -1,14 +1,13 @@
 import React from 'react';
 import './History.css';
 import Navbar from '../components/Navbar';
+import Calendar from '../components/Calendar';
 
 function History() {
     return (
         <div>
             <Navbar />
-            <div className="history">
-                <h1>History</h1>
-            </div>
+            <Calendar />
         </div>
     );
 }
