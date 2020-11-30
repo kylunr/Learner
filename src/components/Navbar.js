@@ -13,7 +13,6 @@ import InfoIcon from '@material-ui/icons/Info';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-
 /**
  * The Navbar component is used to render the navigation
  * bar for the user, this navigation bar includes a sidebar

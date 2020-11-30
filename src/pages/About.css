@@ -3,3 +3,17 @@
     align-content: center;
     margin: 0 auto;
 }
+
+.history {
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+}
+
+.body_section {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-top: 2rem;
+}

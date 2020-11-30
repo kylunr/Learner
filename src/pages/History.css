@@ -1,9 +1,21 @@
-.history {
-    justify-content: center;
-    align-content: center;
-    margin: 0 auto;
-}
-
 .body_section {
     height: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+.lifetime_history {
+    border: 2px solid black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.weekly_history {
+    border: 2px solid black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
 }

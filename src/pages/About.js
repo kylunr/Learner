@@ -1,13 +1,17 @@
 import React from 'react';
 import './About.css';
-import Navbar from '../components/Navbar'
-import Subjects from '../components/Subjects'
+import Navbar from '../components/Navbar';
+import Calendar2 from '../components/Calendar2';
+import Progress from '../components/Progress';
 
 function About() {
     return (
         <div>
             <Navbar />
-            <Subjects />
+            <div className="body_section">
+                <Calendar2 />
+                <Progress />
+            </div>
         </div>
     );
 }
