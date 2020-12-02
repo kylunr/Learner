@@ -1,4 +1,22 @@
-.progress {
+/* .progress {
     border: 2px solid black;
     text-align: center;
+} */
+
+.progress_title {
+    margin: 10px auto;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 800;
 }
+
+.subject {
+    border: 2px solid black;
+    width: 80%;
+    margin: 1rem auto;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: #317fdd;
+    color: white;
+}
+

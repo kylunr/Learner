@@ -1,21 +1,94 @@
+body {
+    background-color: #f3f3f3;
+}
+
 .body_section {
     height: 90%;
     text-align: center;
     display: flex;
     flex-direction: column;
     padding-top: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .lifetime_history {
-    border: 2px solid black;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem auto;
+    width: 95%;
     padding: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+    /* border: 2px solid black; */
+    box-shadow: 0 0 2px 2px gray;
+}
+
+.lifetime_flex {
+    margin: 1.5rem auto;
+    display: flex;
+    justify-content: center;
+}
+
+.lifetime_subject {
+    padding: 15px;
+    margin: 0 1rem;
+    width: 20%;
+    border-radius: 1rem;
+    color: white;
+    background-color: #2867B2;
+    border: 2px solid black;
+    /* box-shadow: 0 0 2px 2px black; */
 }
 
 .weekly_history {
-    border: 2px solid black;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem auto;
+    width: 95%;
     padding: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+    /* border: 2px solid black; */
+    box-shadow: 0 0 2px 2px gray;
+}
+
+/* .weekly_header {
+    background-color: #2867B2;
+    color: white;
+    margin: 0 auto;
+} */
+
+.weekly_flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
+}
+
+.weekly_section {
+    width: 80%;
+    margin: 1rem auto;
+    /* border: 2px solid black; */
+    box-shadow: 0 0 2px 2px gray;
+    border-radius: 1rem;
+}
+
+.week_title {
+    margin: .5rem auto;
+    font-weight: 800;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+.subjects_flex {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+}
+
+.weekly_subjects {
+    padding: 15px;
+    margin: 0 1rem;
+    width: 20%;
+    color: white;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: #2867B2;
 }

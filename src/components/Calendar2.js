@@ -8,6 +8,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin, { Draggable } from "@fullcalendar/interaction"; // needed for dayClick
 import "./Calendar.css";
 import uuid from 'react-uuid';
+import Progress from '../components/Progress';
 
 // must manually import the stylesheets for each plugin                                                     
 import "@fullcalendar/core/main.css";
@@ -99,6 +100,7 @@ class Calendar extends React.Component {
                         )} */}
                         {this.state.userSubjects.map((subject, idx) => 
                             <div title={subject} data={idx} key={idx} className="subject_buttons">
+                                <h1></h1>
                                 <h3 className="subject_name">{subject}</h3>
                                 <div className="delete_button" id={subject} onClick={this.deleteSubject}>X</div>
                             </div>
@@ -145,6 +147,7 @@ class Calendar extends React.Component {
                         />
                     </div>
                 </div>
+                <Progress className="progress" />
             </div>
         );
     }

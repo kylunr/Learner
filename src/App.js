@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import History from './pages/History';
+import History2 from './pages/History2';
 
 /**
  *  For firebase deployment:
