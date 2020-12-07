@@ -5,7 +5,7 @@
     display: flex;
 }
 
-.calendar_object_section {
+/* .calendar_object_section {
     margin-left: 5%;
     width: 11%;
     min-height: 600px;
@@ -37,4 +37,4 @@
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 5px 2px lightgray;
     box-shadow: 0px 0px 5px 2px lightgray;
-}
+} */

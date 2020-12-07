@@ -8,7 +8,7 @@ function About() {
         <div className="body">
             <Navbar />
             <div className="body_section">
-                <Calendar2 />
+                <h1>In progress</h1>
             </div>
         </div>
     );

@@ -47,6 +47,12 @@ function Progress() {
                 let prevSundayDate = prevSunday.getDate();
                 prevSunday.setDate(prevSundayDate - 7);
 
+                // Loop through array, look for subject
+                weeklyArray.forEach((subject, idx) => {
+
+                    subject.time = 0;
+                });
+
                 document.calendarEvents.forEach(element => {
 
                     if ((element.end.toDate() < nextSunday) && (element.start.toDate() > prevSunday)) {

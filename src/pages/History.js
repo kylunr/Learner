@@ -20,41 +20,34 @@ function History() {
             let document = doc.data();
 
             document.calendarEvents.forEach(element => {
-                // setCalendarEvents(
-                //     calendarEvents => calendarEvents.concat(element)
-                // );
 
-                var title = element.title;
+                // var title = element.title;
                 var index = -1;
                 var result = false;
 
-                lifetimeArray.forEach((element, idx) => {
-                    if (element.title === title) {
+                result = lifetimeArray.some(function(element0, idx) {
+                    // console.log(element.title);
+                    // console.log(element0.title);
+                    // console.log(element0.title == element.title);
+                    if (element0.title == element.title) {
                         index = idx;
                         result = true;
-                        return;
+                        return true;
                     } else {
                         result = false;
-                        return;
+                        return false;
                     }
                 });
 
+                // console.log("Result: " + result);
+
                 if (result) {
                     lifetimeArray[index].time += (element.end.toDate() - element.start.toDate());
-                    // setLifetimeArray(
-                    //     lifetimeArray[index].time += (element.end.toDate() - element.start.toDate())
-                    // );
                 } else {
                     lifetimeArray.push(
-                                { title: title, time: (element.end.toDate() - element.start.toDate()) }
-                            );
-                    // setLifetimeArray(
-                    //     lifetimeArray.push(
-                    //         { title: title, time: (element.end.toDate() - element.start.toDate()) }
-                    //     )
-                    // );
+                                { title: element.title, time: (element.end.toDate() - element.start.toDate()) }
+                    );
                 }
-
                 // console.log(lifetimeArray);
 
                 var options = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
@@ -74,74 +67,101 @@ function History() {
                 today.setMinutes(0);
                 today.setSeconds(0);
 
-                let todayValue = today.valueOf()
+                let todayValue = today.valueOf();
                 let nextSunday = new Date(todayValue);
                 let nextSundayValue = nextSunday.valueOf();
                 let prevSunday = new Date(nextSundayValue);
                 let prevSundayDate = prevSunday.getDate();
                 prevSunday.setDate(prevSundayDate - 7);
 
-                if ((element.end.toDate() < nextSunday) && (element.start.toDate() > prevSunday)) {
-                    var title = element.title;
-                    var index = -1;
-                    var result = false;
 
-                    weeklyArray.forEach((element, idx) => {
+                var weeklyIndex = -1;
+                var weeklyResult = false;
 
-                        element.startDate.setMilliseconds(0);
-                        prevSunday.setMilliseconds(0);
+                let elementEndDate = element.end.toDate();
+                let elementDateString = elementEndDate.toLocaleTimeString('en-us', options);
+                let elementArray = elementDateString.split(",");
 
-                        if (element.startDate.valueOf() === prevSunday.valueOf()) {
-                            index = idx;
-                            result = true;
-                            return;
-                        } 
-                    });
-
-                    // console.log(result);
-
-                    // If the week is already in the db
-                    if (result) {
-                        let subjectIndex = -1;
-                        let subjectResult = false;
-                        let subjectsArray = weeklyArray[index].subjects;
-                        let subjectTitle = "";
-                        let subjectCurrentTime = 0;
-
-                        // Check if the subject already has an element
-                        subjectsArray.forEach((element1, idx) => {
-                            if (element1.title === title) {
-                                subjectIndex = idx;
-                                subjectResult = true;
-                                subjectTitle = element1.title;
-                                subjectCurrentTime = element1.time;
-                                return;
-                            } else {
-                                subjectResult = false;
-                                return;
-                            }
-                        });
-
-                        if (subjectResult) {
-                            
-                            weeklyArray[index].subjects[subjectIndex] = {title: subjectTitle, time: subjectCurrentTime + (element.end.toDate() - element.start.toDate())} ;
-                            
-                        } else {
-                            weeklyArray[index].subjects.push(
-                                { title: title, time: (element.end.toDate() - element.start.toDate()) }
-                            );
-                        }
-
-                    } else {
-                        weeklyArray.push({ 
-                            startDate: prevSunday,
-                            endDate: nextSunday,
-                            subjects: [ { title: title, time: (element.end.toDate() - element.start.toDate()) } ]
-                        });
-                    }
+                while (elementArray[0] !== "Sunday") {
+                    elementEndDate.setDate(elementEndDate.getDate() + 1);
+                    elementDateString = elementEndDate.toLocaleTimeString('en-us', options);
+                    elementArray = elementDateString.split(",");
                 }
 
+                weeklyResult = weeklyArray.some(function(element0, idx) {
+
+                    element0.endDate.setHours(0);
+                    element0.endDate.setMinutes(0);
+                    element0.endDate.setSeconds(0);
+                    element0.endDate.setMilliseconds(0);
+
+                    elementEndDate.setHours(0);
+                    elementEndDate.setMinutes(0);
+                    elementEndDate.setSeconds(0);
+                    elementEndDate.setMilliseconds(0);
+
+                    console.log(element0.endDate.toLocaleTimeString('en-us', options));
+                    console.log(elementEndDate.toLocaleTimeString('en-us', options));
+
+                    if (element0.endDate.valueOf() === elementEndDate.valueOf()) {
+                        weeklyIndex = idx;
+                        // weeklyResult = true;
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+
+                console.log("Result: " + weeklyResult);
                 console.log(weeklyArray);
+
+                // If the week is already in the db
+                if (weeklyResult) {
+                    let subjectIndex = -1;
+                    let subjectResult = false;
+                    console.log(weeklyArray[weeklyIndex]);
+                    // let subjectsArray = weeklyArray[weeklyIndex].subjects;
+                    let subjectTitle = "";
+                    let subjectCurrentTime = 0;
+
+                    // Check if the subject already has an element
+                    subjectResult = weeklyArray[weeklyIndex].subjects.some(function(element1, idx)  {
+                        if (element1.title === element.title) {
+                            subjectIndex = idx;
+                            subjectResult = true;
+                            subjectTitle = element1.title;
+                            subjectCurrentTime = element1.time;
+                            return true;
+                        } else {
+                            subjectResult = false;
+                            return false;
+                        }
+                    });
+
+                    if (subjectResult) {
+                        weeklyArray[weeklyIndex].subjects[subjectIndex] = {title: subjectTitle, time: subjectCurrentTime + (element.end.toDate() - element.start.toDate())} ;
+                    } else {
+                        weeklyArray[weeklyIndex].subjects.push(
+                            { title: element.title, time: (element.end.toDate() - element.start.toDate()) }
+                        );
+                    }
+
+                } else {
+                    
+                    // Find the week it belongs to
+                    while (element.start.toDate().valueOf() < prevSunday.valueOf()) {
+                        prevSunday.setDate(prevSunday.getDate() - 7);
+                        nextSunday.setDate(nextSunday.getDate() - 7);
+                    }
+
+                    weeklyArray.push({ 
+                        startDate: prevSunday,
+                        endDate: nextSunday,
+                        subjects: [ { title: element.title, time: (element.end.toDate() - element.start.toDate()) } ]
+                    });
+                }
+
+                // console.log(weeklyArray);
             });            
         })
         .catch(function(error) {

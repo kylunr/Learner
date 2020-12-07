@@ -1,26 +1,14 @@
 import React from 'react';
 import './Home.css';
 import Navbar from '../components/Navbar';
+import Calendar2 from '../components/Calendar2';
 
 function Home() {
     return (
-        <div>
+        <div className="body">
             <Navbar />
-            <div className="home">
-
-                {/* Calendar object section */}
-                <div className="calendar_object_section">
-                </div>
-
-                {/* Calendar section */}
-                <div className="calendar_section">
-                    
-                </div>
-
-                {/* Progress section */}
-                <div className="progress_section">
-                    
-                </div>
+            <div className="body_section">
+                <Calendar2 />
             </div>
         </div>
     );
