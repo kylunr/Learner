@@ -89,7 +89,7 @@ class Calendar extends React.Component {
                     <div className="form">
                         <form onSubmit={e => e.preventDefault()}>
                             <input id="create_form" className="create_form" type="text" placeholder="Create a new subject..."/>
-                            <button type="submit" className="submit_button" onClick={this.createSubject}>Submit</button>
+                            <button type="submit" className="submit_button" style={{visibility: 'hidden', position: 'absolute'}} onClick={this.createSubject}>Submit</button>
                         </form>
                     </div>
 
