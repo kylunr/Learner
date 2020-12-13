@@ -14,22 +14,28 @@
 
     .all_sections > .calendar {
         margin: 1rem auto;
+        min-width: 300px;
+        max-width: 350px;
     }
     
     .all_sections > .subjects_section {
-        margin: 0 auto 1rem auto;
+        margin: 0.5rem auto 1rem auto;
         max-height: 450px;
+        min-width: 300px;
+        max-width: 350px;
     }
 
     .all_sections > .progress {
         margin: 1rem auto 2rem auto;
         max-height: 450px;
+        min-width: 300px;
+        max-width: 350px;
     }
 
-    .calendar {
+    /* .calendar {
         margin: 100px auto;
         min-width: 400px;
-        max-width: 600px;
+        max-width: 450px;
     }
 
     .subjects_section {
@@ -42,8 +48,7 @@
     .progress {
         min-width: 400px;
         max-width: 600px;
-        /* min-height: 300px; */
-    }
+    } */
 
     /* .submit_button {
         visibility: visible;

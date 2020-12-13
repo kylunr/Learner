@@ -7,6 +7,12 @@
     align-items: center;
 }
 
+@media (max-width: 950px) {
+    .navbar_name {
+        visibility: hidden;
+    }
+}
+
 /* Navbar hamburger/close icon  */
 .navbar_menu_icon {
     margin-left: 2rem;
