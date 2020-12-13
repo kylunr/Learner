@@ -2,7 +2,49 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    height: 100%;
+}
+
+@media (max-width: 800px) {
+    .all_sections {
+        /* display: flex; */
+        /* flex-direction: column; */
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .all_sections > .calendar {
+        margin: 1rem auto;
+    }
+    
+    .all_sections > .subjects_section {
+        margin: 0 auto 1rem auto;
+    }
+
+    .all_sections > .progress {
+        margin: 1rem auto 2rem auto;
+    }
+
+    .calendar {
+        margin: 100px auto;
+        min-width: 400px;
+        max-width: 600px;
+    }
+
+    .subjects_section {
+        min-width: 400px;
+        max-width: 600px;
+    }
+
+    .progress {
+        min-width: 400px;
+        max-width: 600px;
+        /* min-height: 300px; */
+    }
+
+    /* .submit_button {
+        visibility: visible;
+        position: absolute;
+    }     */
 }
 
 .calendar {
@@ -53,6 +95,10 @@
 
 .create_form {
     width: 80%;
+    text-align: center;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 0.5rem;
 }
 
 .subjects_title {
@@ -92,16 +138,24 @@
 .progress {
     width: 20%;
     /* border: 2px solid black; */
+    min-height: 650px;
     box-shadow: 0 0 2px 2px gray;
     margin: 0 0.75rem;
     background-color: white;
     border-radius: 0.5rem;
 }
 
-/* .submit_button {
-    display: none;
-
-} */
+.submit_button {
+    /* visibility: 'hidden';
+    position: 'absolute'; */
+    margin: .5rem auto 0 auto;
+    padding: 0.25rem 0.5rem;
+    background-color: #317fdd;
+    color: white;
+    font-family: sans-serif;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+}
 
 .delete_button {
     padding: 5px;
