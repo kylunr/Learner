@@ -4,7 +4,7 @@
     align-content: center;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 900px) {
     .all_sections {
         /* display: flex; */
         /* flex-direction: column; */

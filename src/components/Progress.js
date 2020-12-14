@@ -10,7 +10,6 @@ function Progress() {
     const user = useSelector(selectUser);
     let [weeklyArray, setWeeklyArray] = useState([]);
 
-
     // TODO:
     // Fix bug of goal progress not updating
     useEffect(() => {
@@ -74,15 +73,19 @@ function Progress() {
                             weeklyArray[index].time += (element.end.toDate() - element.start.toDate());
 
                         } else {
+
+                            let subject = document.subjects.find(e => e.subject === element.title);
+
                             weeklyArray.push({ 
                                 title: element.title,
                                 time: (element.end.toDate() - element.start.toDate()),
-                                goal: 14400000
+                                goal: 14400000,
+                                color: subject.color
                             });
                         }
                     }
 
-                    console.log(weeklyArray);
+                    // console.log(weeklyArray);
                 });            
             } 
             // If the document does not exist
@@ -112,7 +115,7 @@ function Progress() {
         <div className="progress">
             <h1 className="progress_title">Progress</h1>
             {weeklyArray.map((subject, idx) =>
-                <div key={idx} className="subject" onClick={() => changeGoal(subject.title)}>
+                <div key={idx} className="subject" style={{backgroundColor: subject.color}} onClick={() => changeGoal(subject.title)}>
                     <h2>{subject.title}</h2>
                     <h4>{(subject.time / (1000 * 60 * 60)) + "/" + (subject.goal / (1000 * 60 * 60)) + " hours"}</h4>
                 </div>
