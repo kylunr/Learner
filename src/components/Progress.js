@@ -105,7 +105,7 @@ function Progress() {
         weeklyArray.forEach((subject, idx) => {
 
             if (subject.title === title) {
-                weeklyArray[idx] = {title: subject.title, time: subject.time, goal: userInput};
+                weeklyArray[idx] = {title: subject.title, time: subject.time, goal: userInput, color: subject.color};
                 return;
             } 
         });
