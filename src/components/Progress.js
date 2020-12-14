@@ -74,7 +74,10 @@ function Progress() {
 
                         } else {
 
-                            let subject = document.subjects.find(e => e.subject === element.title);
+                            let subject = "";
+                            subject = document.subjects.find(e => e.subject === element.title);
+
+                            console.log(subject);
 
                             weeklyArray.push({ 
                                 title: element.title,

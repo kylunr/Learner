@@ -40,12 +40,13 @@ function History() {
                 });
 
                 // console.log("Result: " + result);
+                let currentSubject = document.subjects.find(e => e.subject === element.title);
 
                 if (result) {
                     lifetimeArray[index].time += (element.end.toDate() - element.start.toDate());
                 } else {
                     lifetimeArray.push(
-                                { title: element.title, time: (element.end.toDate() - element.start.toDate()) }
+                                { title: element.title, time: (element.end.toDate() - element.start.toDate()), color: currentSubject.color }
                     );
                 }
                 // console.log(lifetimeArray);
@@ -100,8 +101,8 @@ function History() {
                     elementEndDate.setSeconds(0);
                     elementEndDate.setMilliseconds(0);
 
-                    console.log(element0.endDate.toLocaleTimeString('en-us', options));
-                    console.log(elementEndDate.toLocaleTimeString('en-us', options));
+                    // console.log(element0.endDate.toLocaleTimeString('en-us', options));
+                    // console.log(elementEndDate.toLocaleTimeString('en-us', options));
 
                     if (element0.endDate.valueOf() === elementEndDate.valueOf()) {
                         weeklyIndex = idx;
@@ -112,14 +113,14 @@ function History() {
                     }
                 });
 
-                console.log("Result: " + weeklyResult);
-                console.log(weeklyArray);
+                // console.log("Result: " + weeklyResult);
+                // console.log(weeklyArray);
 
                 // If the week is already in the db
                 if (weeklyResult) {
                     let subjectIndex = -1;
                     let subjectResult = false;
-                    console.log(weeklyArray[weeklyIndex]);
+                    // console.log(weeklyArray[weeklyIndex]);
                     // let subjectsArray = weeklyArray[weeklyIndex].subjects;
                     let subjectTitle = "";
                     let subjectCurrentTime = 0;
@@ -138,15 +139,23 @@ function History() {
                         }
                     });
 
+                    
+                    let currSubject = document.subjects.find(e => e.subject === element.title);
+                    console.log(currSubject);
+
                     if (subjectResult) {
-                        weeklyArray[weeklyIndex].subjects[subjectIndex] = {title: subjectTitle, time: subjectCurrentTime + (element.end.toDate() - element.start.toDate())} ;
+                        weeklyArray[weeklyIndex].subjects[subjectIndex] = {title: subjectTitle, time: subjectCurrentTime + (element.end.toDate() - element.start.toDate()), color: currSubject.color} ;
                     } else {
                         weeklyArray[weeklyIndex].subjects.push(
-                            { title: element.title, time: (element.end.toDate() - element.start.toDate()) }
+                            { title: element.title, time: (element.end.toDate() - element.start.toDate()), color: currSubject.color }
                         );
                     }
 
                 } else {
+
+                    
+                    let currSubject = document.subjects.find(e => e.subject === element.title);
+                    console.log(currSubject);
                     
                     // Find the week it belongs to
                     while (element.start.toDate().valueOf() < prevSunday.valueOf()) {
@@ -157,7 +166,7 @@ function History() {
                     weeklyArray.push({ 
                         startDate: prevSunday,
                         endDate: nextSunday,
-                        subjects: [ { title: element.title, time: (element.end.toDate() - element.start.toDate()) } ]
+                        subjects: [ { title: element.title, time: (element.end.toDate() - element.start.toDate()), color: currSubject.color } ]
                     });
                 }
 
@@ -251,6 +260,7 @@ function History() {
                             });
 
                             // console.log(result);
+                            console.log("test");
 
                             // If the week is already in the db
                             if (result) {
@@ -274,24 +284,31 @@ function History() {
                                     }
                                 });
 
+                                let currSubject = document.subjects.find(e => e.subject === element.title);
+                                console.log(currSubject);
+
                                 if (subjectResult) {
                                     setWeeklyArray(
-                                        weeklyArray[index].subjects[subjectIndex] = {title: subjectTitle, time: subjectCurrentTime + (element.end.toDate() - element.start.toDate())} 
+                                        weeklyArray[index].subjects[subjectIndex] = {title: subjectTitle, time: subjectCurrentTime + (element.end.toDate() - element.start.toDate()), color: currSubject.color } 
                                     );
                                 } else {
                                     setWeeklyArray(
                                         weeklyArray[index].subjects.push(
-                                            { title: title, time: (element.end.toDate() - element.start.toDate()) }
+                                            { title: title, time: (element.end.toDate() - element.start.toDate()), color: currSubject.color }
                                         )
                                     );
                                 }
 
                             } else {
+
+                                let currSubject = document.subjects.find(e => e.subject === element.title);
+                                console.log(currSubject);
+
                                 setWeeklyArray(
                                     weeklyArray.push({ 
                                         startDate: prevSunday,
                                         endDate: nextSunday,
-                                        subjects: [ { title: title, time: (element.end.toDate() - element.start.toDate()) } ]
+                                        subjects: [ { title: title, time: (element.end.toDate() - element.start.toDate()), color: currSubject.color } ]
                                     })
                                 );
                             }
@@ -361,7 +378,7 @@ function History() {
                     <h1>Lifetime History</h1>
                     <div className="lifetime_flex">
                         {lifetimeArray.map((subject, idx) =>
-                            <div key={idx} className="lifetime_subject">
+                            <div key={idx} style={{backgroundColor: subject.color}} className="lifetime_subject">
                                 <h2>{subject.title}</h2>
                                 <h4>{msToTime(subject.time)}</h4>
                             </div>
@@ -383,7 +400,7 @@ function History() {
                                 </h4>
                                 <div className="subjects_flex">
                                     {week.subjects.map((subject, idx2) => 
-                                        <div key={idx2} className="weekly_subjects">
+                                        <div key={idx2} style={{backgroundColor: subject.color}} className="weekly_subjects">
                                             <h2>{subject.title}</h2>
                                             <h4>{msToTime(subject.time)}</h4>
                                         </div>
