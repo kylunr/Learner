@@ -1,0 +1,36 @@
+.about-section {
+    font-family: sans-serif;
+    margin: 2rem auto;
+    width: 80%;
+}
+
+.about-header {
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.guide-header {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.head-list {
+    margin-left: 25px;
+}
+
+.head-list > ul {
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+.list-section-header {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.list-header {
+    font-weight: bold;
+    font-size: 16px;
+}
