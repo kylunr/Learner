@@ -1,14 +1,14 @@
 import React from 'react';
 import './Home.css';
 import Navbar from '../components/Navbar';
-import Calendar2 from '../components/Calendar2';
+import Calendar from '../components/Calendar';
 
 function Home() {
     return (
         <div className="body">
             <Navbar />
             <div className="body_section">
-                <Calendar2 />
+                <Calendar />
             </div>
         </div>
     );

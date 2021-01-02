@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Progress.css';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
@@ -74,10 +74,7 @@ function Progress() {
 
                         } else {
 
-                            let subject = "";
-                            subject = document.subjects.find(e => e.subject === element.title);
-
-                            console.log(subject);
+                            let subject = document.subjects.find(e => e.subject === element.title);
 
                             weeklyArray.push({ 
                                 title: element.title,
@@ -94,7 +91,7 @@ function Progress() {
             // If the document does not exist
             else {
             }
-        }.bind(this));
+        });
     }, []);
 
     const changeGoal = (title) => {
