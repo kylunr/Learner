@@ -10,4 +10,3 @@
 ![alt text](https://github.com/kylunr/Learner/blob/master/src/screenshots/web_screenshot_2.png)
 
 ![alt text](https://github.com/kylunr/Learner/blob/master/src/screenshots/mobile_screenshot_1.PNG)
-![alt text](https://github.com/kylunr/Learner/blob/master/src/screenshots/mobile_screenshot_1.PNG)
