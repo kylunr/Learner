@@ -1,5 +1,5 @@
 # Learner: A Web App For Remote Learning (trackmylearning.org)
-#### Learner allows students to schedule/track their learning hours. Users will be able to create custom subjects and weekly time goals for those subjects.  
+##### Learner allows students to schedule/track their learning hours. Users will be able to create custom subjects and weekly time goals for those subjects.  
 
 
 ## Structure 
